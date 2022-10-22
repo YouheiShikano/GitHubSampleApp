@@ -21,8 +21,8 @@ class UserRepositoriesViewModel: ViewModelObject  {
     }
     
     final class Output: OutputObject {
-        @Published var repositories: [RepositoryModel] = []
-        @Published var user: UserModel?
+        @Published var repositories: [RepositoryEntity] = []
+        @Published var user: UserEntity?
     }
     
     final class Binding: BindingObject {

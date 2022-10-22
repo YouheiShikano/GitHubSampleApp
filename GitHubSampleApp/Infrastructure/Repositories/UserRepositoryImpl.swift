@@ -9,12 +9,12 @@ import Combine
 
 class UserRepositoryImpl: IUserRepository, ObservableObject {
     
-    func getUsers(per: Int, page: Int) async throws -> [UserModel] {
+    func getUsers(per: Int, page: Int) async throws -> [UserEntity] {
         let users = try await Api().getUsers(per: per, page: page)
         return users
     }
     
-    func getUser(username: String) async throws -> UserModel? {
+    func getUser(username: String) async throws -> UserEntity? {
         let user = try await Api().getUser(username: username)
         return user
     }

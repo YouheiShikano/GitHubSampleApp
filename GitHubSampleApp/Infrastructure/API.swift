@@ -18,12 +18,12 @@ class Api {
         case fail
     }
     
-    func getUsers(per: Int, page: Int) async throws -> [UserModel] {
+    func getUsers(per: Int, page: Int) async throws -> [UserEntity] {
         
         let parametes: [String: Any] = ["per_page": per, "page": page]
-        let dataTask = AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).serializingDecodable([UserModel].self, decoder: JSONDecoder())
+        let dataTask = AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).serializingDecodable([UserEntity].self, decoder: JSONDecoder())
         
-        var users: [UserModel] = []
+        var users: [UserEntity] = []
         
         do {
             users = try await dataTask.value
@@ -36,11 +36,11 @@ class Api {
         
     }
     
-    func getUser(username: String) async throws -> UserModel? {
+    func getUser(username: String) async throws -> UserEntity? {
         let userUrl = self.baseUrl + "/\(username)"
-        let dataTask = AF.request(userUrl, headers: self.authHeader).serializingDecodable(UserModel.self, decoder: JSONDecoder())
+        let dataTask = AF.request(userUrl, headers: self.authHeader).serializingDecodable(UserEntity.self, decoder: JSONDecoder())
         
-        var user: UserModel? = nil
+        var user: UserEntity? = nil
         
         do {
             user = try await dataTask.value
@@ -51,12 +51,12 @@ class Api {
         return user
     }
     
-    func getRepositories(username: String) async throws -> [RepositoryModel] {
+    func getRepositories(username: String) async throws -> [RepositoryEntity] {
         
         let repositoryUrl = self.baseUrl + "/\(username)/repos"
-        let dataTask = AF.request(repositoryUrl, headers: self.authHeader).serializingDecodable([RepositoryModel].self, decoder: JSONDecoder())
+        let dataTask = AF.request(repositoryUrl, headers: self.authHeader).serializingDecodable([RepositoryEntity].self, decoder: JSONDecoder())
         
-        var repositories: [RepositoryModel] = []
+        var repositories: [RepositoryEntity] = []
         
         do {
             repositories = try await dataTask.value

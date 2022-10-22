@@ -64,7 +64,7 @@ struct UserRepositoriesView: View {
 
 struct RepositoryCell: View {
     
-    var repository: RepositoryModel
+    var repository: RepositoryEntity
     
     var body: some View {
         VStack(alignment: .leading) {

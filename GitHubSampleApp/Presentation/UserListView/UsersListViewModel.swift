@@ -19,7 +19,7 @@ class UsersListViewModel: ViewModelObject  {
     }
     
     final class Output: OutputObject {
-        @Published var users: [UserModel] = []
+        @Published var users: [UserEntity] = []
     }
     
     final class Binding: BindingObject {

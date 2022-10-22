@@ -8,7 +8,7 @@
 import Foundation
 
 
-class UserModel: Identifiable, Codable {
+class UserEntity: Identifiable, Codable {
     let id: Int
     let login: String?
     let name: String?

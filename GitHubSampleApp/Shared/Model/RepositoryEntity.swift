@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RepositoryModel: Identifiable, Codable {
+class RepositoryEntity: Identifiable, Codable {
     let id: Int
     let name: String?
     let language: String?

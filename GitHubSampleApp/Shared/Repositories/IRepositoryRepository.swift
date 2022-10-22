@@ -8,5 +8,5 @@
 import Foundation
 
 protocol IRepositoryRepository {
-    func getRepositories(userName: String) async throws -> [RepositoryModel]
+    func getRepositories(userName: String) async throws -> [RepositoryEntity]
 }
