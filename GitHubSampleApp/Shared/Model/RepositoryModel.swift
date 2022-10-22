@@ -14,4 +14,5 @@ class RepositoryModel: Identifiable, Codable {
     let stargazers_count: Int?
     let description: String?
     let html_url: String?
+    let fork: Bool?
 }

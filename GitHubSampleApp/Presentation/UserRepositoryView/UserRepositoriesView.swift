@@ -46,18 +46,12 @@ struct UserRepositoriesView: View {
                 Section("リポジトリ一覧") {
                     ForEach(vm.output.repositories) { repository in
                         
-                        NavigationLink {
-                            WebViewPage(url: repository.html_url ?? "")
-                        } label: {
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Text(repository.name ?? "").font(.title)
-                                    Spacer()
-                                    Text(repository.language ?? "").foregroundColor(Color.gray)
-                                    Image(systemName: "star.fill")
-                                    Text(repository.stargazers_count?.description ?? "")
-                                }
-                                Text(repository.description ?? "").multilineTextAlignment(.leading)
+                        if repository.fork == false {
+                            NavigationLink {
+                                WebViewPage(url: repository.html_url ?? "")
+                            } label: {
+                                RepositoryCell(repository: repository)
+
                             }
                         }
                     }
@@ -65,5 +59,23 @@ struct UserRepositoriesView: View {
             }
                      
         }.navigationTitle("ユーザー詳細画面")
+    }
+}
+
+struct RepositoryCell: View {
+    
+    var repository: RepositoryModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text(repository.name ?? "").font(.title)
+                Spacer()
+                Text(repository.language ?? "").foregroundColor(Color.gray)
+                Image(systemName: "star.fill")
+                Text(repository.stargazers_count?.description ?? "")
+            }
+            Text(repository.description ?? "").multilineTextAlignment(.leading)
+        }
     }
 }
