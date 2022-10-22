@@ -14,6 +14,10 @@
 		4E1A43282901AEC2003D5800 /* GitHubSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43272901AEC2003D5800 /* GitHubSampleAppTests.swift */; };
 		4E1A43322901AEC2003D5800 /* GitHubSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43312901AEC2003D5800 /* GitHubSampleAppUITests.swift */; };
 		4E1A43342901AEC2003D5800 /* GitHubSampleAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43332901AEC2003D5800 /* GitHubSampleAppUITestsLaunchTests.swift */; };
+		4E1A43462901B003003D5800 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43452901B003003D5800 /* API.swift */; };
+		4E1A43492901B1CB003D5800 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1A43482901B1CB003D5800 /* Alamofire */; };
+		4E1A434B2903A88B003D5800 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A434A2903A88B003D5800 /* UserModel.swift */; };
+		4E1A434D2903A89A003D5800 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A434C2903A89A003D5800 /* RepositoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,9 @@
 		4E1A432D2901AEC2003D5800 /* GitHubSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E1A43312901AEC2003D5800 /* GitHubSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSampleAppUITests.swift; sourceTree = "<group>"; };
 		4E1A43332901AEC2003D5800 /* GitHubSampleAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSampleAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4E1A43452901B003003D5800 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		4E1A434A2903A88B003D5800 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		4E1A434C2903A89A003D5800 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1A43492901B1CB003D5800 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +102,9 @@
 		4E1A43152901AEC0003D5800 /* GitHubSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				4E1A43402901AF4C003D5800 /* Infrastructure */,
+				4E1A43422901AF90003D5800 /* Presentation */,
+				4E1A43432901AFA3003D5800 /* Shared */,
 				4E1A43162901AEC0003D5800 /* GitHubSampleAppApp.swift */,
 				4E1A43182901AEC0003D5800 /* ContentView.swift */,
 				4E1A431A2901AEC2003D5800 /* Assets.xcassets */,
@@ -127,6 +138,46 @@
 			path = GitHubSampleAppUITests;
 			sourceTree = "<group>";
 		};
+		4E1A43402901AF4C003D5800 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4E1A43412901AF79003D5800 /* API */,
+				4E1A43452901B003003D5800 /* API.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		4E1A43412901AF79003D5800 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4E1A43422901AF90003D5800 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4E1A43432901AFA3003D5800 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4E1A43442901AFBF003D5800 /* Model */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4E1A43442901AFBF003D5800 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E1A434A2903A88B003D5800 /* UserModel.swift */,
+				4E1A434C2903A89A003D5800 /* RepositoryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +194,9 @@
 			dependencies = (
 			);
 			name = GitHubSampleApp;
+			packageProductDependencies = (
+				4E1A43482901B1CB003D5800 /* Alamofire */,
+			);
 			productName = GitHubSampleApp;
 			productReference = 4E1A43132901AEC0003D5800 /* GitHubSampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +269,9 @@
 				Base,
 			);
 			mainGroup = 4E1A430A2901AEC0003D5800;
+			packageReferences = (
+				4E1A43472901B1CB003D5800 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 4E1A43142901AEC0003D5800 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +315,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E1A43192901AEC0003D5800 /* ContentView.swift in Sources */,
+				4E1A434D2903A89A003D5800 /* RepositoryModel.swift in Sources */,
+				4E1A43462901B003003D5800 /* API.swift in Sources */,
+				4E1A434B2903A88B003D5800 /* UserModel.swift in Sources */,
 				4E1A43172901AEC0003D5800 /* GitHubSampleAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +643,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4E1A43472901B1CB003D5800 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4E1A43482901B1CB003D5800 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E1A43472901B1CB003D5800 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4E1A430B2901AEC0003D5800 /* Project object */;
 }
