@@ -9,4 +9,5 @@ import Foundation
 
 protocol IUserRepository {
     func getUsers(per: Int, page: Int) async throws -> [UserModel]
+    func getUser(username: String) async throws -> UserModel?
 }

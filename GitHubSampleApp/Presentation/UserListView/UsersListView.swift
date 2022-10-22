@@ -20,11 +20,17 @@ struct UsersListView: View {
                     ForEach(vm.output.users) { user in
                         
                         NavigationLink {
-                            UserRepositoriesView()
+                            UserRepositoriesView(vm: UserRepositoriesViewModel(userName: user.login ?? "", repositoryRepository: RepositoryRepositoryImpl(), userRepository: UserRepositoryImpl()))
                         } label: {
                             HStack {
-                                Text(user.name ?? "")
-                            }
+                                if let url = URL(string: user.avatar_url ?? "") {
+                                    URLImage(url: url) { image in
+                                        image.image?.resizable().aspectRatio(contentMode: .fill)
+                                    }.frame(width: 60, height: 60).cornerRadius(30).clipped()
+                                }
+                                Text(user.login ?? "").font(.title).foregroundColor(.black).padding()
+                                Spacer()
+                            }.padding()
                             
                         }
                         
@@ -37,12 +43,8 @@ struct UsersListView: View {
                         }
                 }
             }
+            .navigationTitle("ユーザー一覧")
         }.listStyle(PlainListStyle())
-    }
-}
-
-struct UsersListView_Previews: PreviewProvider {
-    static var previews: some View {
-        UsersListView()
+            
     }
 }

@@ -9,24 +9,12 @@ import SwiftUI
 
 @main
 struct GitHubSampleAppApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            UsersListView()
-                .environmentObject(
-                Container(userRepository: UserRepositoryImpl(),
-                          repositoryRepository: RepositoryRepositoryImpl()))
+            UsersListView(vm: UsersListViewModel(userRepository: UserRepositoryImpl()))
+
         }
     }
 }
 
-class Container: ObservableObject {
-    static let shared = Container(userRepository: UserRepositoryImpl(), repositoryRepository: RepositoryRepositoryImpl())
-    
-    let userRepository: IUserRepository
-    let repositoryRepository: IRepositoryRepository
-    
-    init(userRepository: IUserRepository, repositoryRepository: IRepositoryRepository) {
-        self.userRepository = userRepository
-        self.repositoryRepository = repositoryRepository
-    }
-}

@@ -11,8 +11,8 @@ import Combine
 
 class Api {
     
-    let baseUrl = "https://developer.github.com/v3/users"
-    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
+    let baseUrl = "https://api.github.com/users"
+    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
     
     enum ApiError: Error {
         case fail
@@ -20,7 +20,7 @@ class Api {
     
     func getUsers(per: Int, page: Int) async throws -> [UserModel] {
         
-        let parametes: [String: Any] = ["per_page": page, "per": per]
+        let parametes: [String: Any] = ["per_page": per, "page": page]
         let dataTask = AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).serializingDecodable([UserModel].self, decoder: JSONDecoder())
         
         var users: [UserModel] = []
@@ -36,12 +36,27 @@ class Api {
         
     }
     
+    func getUser(username: String) async throws -> UserModel? {
+        let userUrl = self.baseUrl + "/\(username)"
+        let dataTask = AF.request(userUrl, headers: self.authHeader).serializingDecodable(UserModel.self, decoder: JSONDecoder())
+        
+        var user: UserModel? = nil
+        
+        do {
+            user = try await dataTask.value
+        } catch {
+            print(ApiError.fail)
+        }
+        
+        return user
+    }
+    
     func getRepositories(username: String) async throws -> [RepositoryModel] {
         
         let repositoryUrl = self.baseUrl + "/\(username)/repos"
         let dataTask = AF.request(repositoryUrl, headers: self.authHeader).serializingDecodable([RepositoryModel].self, decoder: JSONDecoder())
         
-        var repositories: [RepositoryModel]
+        var repositories: [RepositoryModel] = []
         
         do {
             repositories = try await dataTask.value
