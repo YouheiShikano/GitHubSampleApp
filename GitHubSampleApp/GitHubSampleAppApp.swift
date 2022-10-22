@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct GitHubSampleAppApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UsersListView(vm: UsersListViewModel(userRepository: UserRepositoryImpl()))
+
         }
     }
 }
+

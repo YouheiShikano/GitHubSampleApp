@@ -11,61 +11,61 @@ import Combine
 
 class Api {
     
-    let baseUrl = "https://developer.github.com/v3/users"
-    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
+    let baseUrl = "https://api.github.com/users"
+    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
     
     enum ApiError: Error {
         case fail
     }
     
-    func getUsers(per: Int, page: Int) -> Future<[UserModel], Error> {
+    func getUsers(per: Int, page: Int) async throws -> [UserEntity] {
         
-        let parametes: [String: Any] = ["per_page": page, "per": per]
+        let parametes: [String: Any] = ["per_page": per, "page": page]
+        let dataTask = AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).serializingDecodable([UserEntity].self, decoder: JSONDecoder())
         
-        return Future<[UserModel], Error> { promise in
-            AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).responseData { response in
-                guard let data = response.data else {
-                    promise(.failure(ApiError.fail))
-                    return
-                }
-                do {
-                    let users = try JSONDecoder().decode([UserModel].self, from: data)
-                    print(users)
-                    promise(.success(users))
-                } catch let error {
-                    promise(.failure(ApiError.fail))
-                    print("Error: \(error)")
-                }
-            }
-            
+        var users: [UserEntity] = []
+        
+        do {
+            users = try await dataTask.value
+        } catch {
+            print(ApiError.fail)
         }
+        
+        
+        return users
+        
     }
     
-    func getRepositories(username: String) ->Future<[RepositoryModel], Error> {
+    func getUser(username: String) async throws -> UserEntity? {
+        let userUrl = self.baseUrl + "/\(username)"
+        let dataTask = AF.request(userUrl, headers: self.authHeader).serializingDecodable(UserEntity.self, decoder: JSONDecoder())
+        
+        var user: UserEntity? = nil
+        
+        do {
+            user = try await dataTask.value
+        } catch {
+            print(ApiError.fail)
+        }
+        
+        return user
+    }
+    
+    func getRepositories(username: String) async throws -> [RepositoryEntity] {
         
         let repositoryUrl = self.baseUrl + "/\(username)/repos"
+        let dataTask = AF.request(repositoryUrl, headers: self.authHeader).serializingDecodable([RepositoryEntity].self, decoder: JSONDecoder())
         
-        return Future<[RepositoryModel], Error> { promise in
-            AF.request(repositoryUrl, headers: self.authHeader).responseData { response in
-                guard let data = response.data else {
-                    promise(.failure(ApiError.fail))
-                    return
-                }
-                do {
-                    let repositories = try JSONDecoder().decode([RepositoryModel].self, from: data)
-                    print(repositories)
-                    promise(.success(repositories))
-                } catch let error {
-                    promise(.failure(ApiError.fail))
-                    print("Error: \(error)")
-                }
-            }
-            
+        var repositories: [RepositoryEntity] = []
+        
+        do {
+            repositories = try await dataTask.value
+        } catch {
+            print(ApiError.fail)
         }
+        
+        return repositories
+        
     }
-    
-//    per_page=100&page=1
-    
-    
     
 }

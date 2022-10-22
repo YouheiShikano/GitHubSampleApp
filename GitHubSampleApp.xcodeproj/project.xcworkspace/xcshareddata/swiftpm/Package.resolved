@@ -8,6 +8,24 @@
         "branch" : "master",
         "revision" : "bdecb2c87a21a236dcfe88b21532ad3f0e3d20f4"
       }
+    },
+    {
+      "identity" : "swiftui-webview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kylehickinson/SwiftUI-WebView",
+      "state" : {
+        "revision" : "a67dcaff2377573a51f75761bb6e768b78931909",
+        "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "url-image",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dmytro-anokhin/url-image",
+      "state" : {
+        "branch" : "main",
+        "revision" : "20abda498bf8fe78631b1057b77078147598962b"
+      }
     }
   ],
   "version" : 2
