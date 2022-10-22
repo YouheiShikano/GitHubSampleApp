@@ -46,23 +46,24 @@ struct UserRepositoriesView: View {
                 Section("リポジトリ一覧") {
                     ForEach(vm.output.repositories) { repository in
                         
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text(repository.name ?? "").font(.title)
-                                Spacer()
-                                Text(repository.language ?? "").foregroundColor(Color.gray)
-                                Image(systemName: "star.fill")
-                                Text(repository.stargazers_count?.description ?? "")
+                        NavigationLink {
+                            WebViewPage(url: repository.html_url ?? "")
+                        } label: {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text(repository.name ?? "").font(.title)
+                                    Spacer()
+                                    Text(repository.language ?? "").foregroundColor(Color.gray)
+                                    Image(systemName: "star.fill")
+                                    Text(repository.stargazers_count?.description ?? "")
+                                }
+                                Text(repository.description ?? "").multilineTextAlignment(.leading)
                             }
-                            Text(repository.description ?? "").multilineTextAlignment(.leading)
                         }
-
                     }
                 }
             }
-            
-            Spacer()
-            
+                     
         }.navigationTitle("ユーザー詳細画面")
     }
 }

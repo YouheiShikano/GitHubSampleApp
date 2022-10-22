@@ -28,6 +28,8 @@
 		4E1A43612903CAD4003D5800 /* ViewModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43602903CAD4003D5800 /* ViewModelObject.swift */; };
 		4E1A43652903D5DA003D5800 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1A43642903D5DA003D5800 /* URLImage */; };
 		4E1A43672903D5DA003D5800 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1A43662903D5DA003D5800 /* URLImageStore */; };
+		4E1A436B29040147003D5800 /* WebViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A436A29040147003D5800 /* WebViewPage.swift */; };
+		4E1A436E290401E7003D5800 /* WebView in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1A436D290401E7003D5800 /* WebView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		4E1A435C2903CA98003D5800 /* UserRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesView.swift; sourceTree = "<group>"; };
 		4E1A435E2903CAA8003D5800 /* UserRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesViewModel.swift; sourceTree = "<group>"; };
 		4E1A43602903CAD4003D5800 /* ViewModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelObject.swift; sourceTree = "<group>"; };
+		4E1A436A29040147003D5800 /* WebViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1A436E290401E7003D5800 /* WebView in Frameworks */,
 				4E1A43652903D5DA003D5800 /* URLImage in Frameworks */,
 				4E1A43672903D5DA003D5800 /* URLImageStore in Frameworks */,
 				4E1A43492901B1CB003D5800 /* Alamofire in Frameworks */,
@@ -180,6 +184,7 @@
 				4E1A43682903FFDE003D5800 /* UserListView */,
 				4E1A43692903FFEF003D5800 /* UserRepositoryView */,
 				4E1A43602903CAD4003D5800 /* ViewModelObject.swift */,
+				4E1A436A29040147003D5800 /* WebViewPage.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				4E1A43482901B1CB003D5800 /* Alamofire */,
 				4E1A43642903D5DA003D5800 /* URLImage */,
 				4E1A43662903D5DA003D5800 /* URLImageStore */,
+				4E1A436D290401E7003D5800 /* WebView */,
 			);
 			productName = GitHubSampleApp;
 			productReference = 4E1A43132901AEC0003D5800 /* GitHubSampleApp.app */;
@@ -335,6 +341,7 @@
 				4E1A43472901B1CB003D5800 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4E1A43622903D0D1003D5800 /* XCRemoteSwiftPackageReference "url-image" */,
 				4E1A43632903D5DA003D5800 /* XCRemoteSwiftPackageReference "url-image" */,
+				4E1A436C290401E7003D5800 /* XCRemoteSwiftPackageReference "SwiftUI-WebView" */,
 			);
 			productRefGroup = 4E1A43142901AEC0003D5800 /* Products */;
 			projectDirPath = "";
@@ -380,6 +387,7 @@
 			files = (
 				4E1A43512903C0D7003D5800 /* IUserRepository.swift in Sources */,
 				4E1A435F2903CAA8003D5800 /* UserRepositoriesViewModel.swift in Sources */,
+				4E1A436B29040147003D5800 /* WebViewPage.swift in Sources */,
 				4E1A43532903C0E6003D5800 /* UserRepositoryImpl.swift in Sources */,
 				4E1A434D2903A89A003D5800 /* RepositoryModel.swift in Sources */,
 				4E1A43572903C107003D5800 /* RepositoryRepositoryImpl.swift in Sources */,
@@ -741,6 +749,14 @@
 				kind = branch;
 			};
 		};
+		4E1A436C290401E7003D5800 /* XCRemoteSwiftPackageReference "SwiftUI-WebView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kylehickinson/SwiftUI-WebView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -758,6 +774,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4E1A43622903D0D1003D5800 /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImageStore;
+		};
+		4E1A436D290401E7003D5800 /* WebView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E1A436C290401E7003D5800 /* XCRemoteSwiftPackageReference "SwiftUI-WebView" */;
+			productName = WebView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

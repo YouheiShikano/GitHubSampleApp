@@ -13,4 +13,5 @@ class RepositoryModel: Identifiable, Codable {
     let language: String?
     let stargazers_count: Int?
     let description: String?
+    let html_url: String?
 }
