@@ -22,6 +22,11 @@
 		4E1A43532903C0E6003D5800 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43522903C0E6003D5800 /* UserRepositoryImpl.swift */; };
 		4E1A43552903C0F9003D5800 /* IRepositoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43542903C0F9003D5800 /* IRepositoryRepository.swift */; };
 		4E1A43572903C107003D5800 /* RepositoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43562903C107003D5800 /* RepositoryRepositoryImpl.swift */; };
+		4E1A43592903CA57003D5800 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43582903CA57003D5800 /* UsersListView.swift */; };
+		4E1A435B2903CA64003D5800 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A435A2903CA64003D5800 /* UsersListViewModel.swift */; };
+		4E1A435D2903CA98003D5800 /* UserRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A435C2903CA98003D5800 /* UserRepositoriesView.swift */; };
+		4E1A435F2903CAA8003D5800 /* UserRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A435E2903CAA8003D5800 /* UserRepositoriesViewModel.swift */; };
+		4E1A43612903CAD4003D5800 /* ViewModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43602903CAD4003D5800 /* ViewModelObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		4E1A43522903C0E6003D5800 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		4E1A43542903C0F9003D5800 /* IRepositoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRepositoryRepository.swift; sourceTree = "<group>"; };
 		4E1A43562903C107003D5800 /* RepositoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRepositoryImpl.swift; sourceTree = "<group>"; };
+		4E1A43582903CA57003D5800 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		4E1A435A2903CA64003D5800 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		4E1A435C2903CA98003D5800 /* UserRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesView.swift; sourceTree = "<group>"; };
+		4E1A435E2903CAA8003D5800 /* UserRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesViewModel.swift; sourceTree = "<group>"; };
+		4E1A43602903CAD4003D5800 /* ViewModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +176,11 @@
 		4E1A43422901AF90003D5800 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4E1A43582903CA57003D5800 /* UsersListView.swift */,
+				4E1A435A2903CA64003D5800 /* UsersListViewModel.swift */,
+				4E1A435C2903CA98003D5800 /* UserRepositoriesView.swift */,
+				4E1A435E2903CAA8003D5800 /* UserRepositoriesViewModel.swift */,
+				4E1A43602903CAD4003D5800 /* ViewModelObject.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -344,13 +359,18 @@
 			files = (
 				4E1A43512903C0D7003D5800 /* IUserRepository.swift in Sources */,
 				4E1A43192901AEC0003D5800 /* ContentView.swift in Sources */,
+				4E1A435F2903CAA8003D5800 /* UserRepositoriesViewModel.swift in Sources */,
 				4E1A43532903C0E6003D5800 /* UserRepositoryImpl.swift in Sources */,
 				4E1A434D2903A89A003D5800 /* RepositoryModel.swift in Sources */,
 				4E1A43572903C107003D5800 /* RepositoryRepositoryImpl.swift in Sources */,
 				4E1A43462901B003003D5800 /* API.swift in Sources */,
+				4E1A43612903CAD4003D5800 /* ViewModelObject.swift in Sources */,
 				4E1A434B2903A88B003D5800 /* UserModel.swift in Sources */,
+				4E1A43592903CA57003D5800 /* UsersListView.swift in Sources */,
+				4E1A435B2903CA64003D5800 /* UsersListViewModel.swift in Sources */,
 				4E1A43172901AEC0003D5800 /* GitHubSampleAppApp.swift in Sources */,
 				4E1A43552903C0F9003D5800 /* IRepositoryRepository.swift in Sources */,
+				4E1A435D2903CA98003D5800 /* UserRepositoriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
