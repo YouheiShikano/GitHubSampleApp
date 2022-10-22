@@ -314,6 +314,7 @@
 			mainGroup = 4E1A430A2901AEC0003D5800;
 			packageReferences = (
 				4E1A43472901B1CB003D5800 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4E1A43622903D0D1003D5800 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 4E1A43142901AEC0003D5800 /* Products */;
 			projectDirPath = "";
@@ -702,6 +703,14 @@
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				branch = master;
+				kind = branch;
+			};
+		};
+		4E1A43622903D0D1003D5800 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				branch = main;
 				kind = branch;
 			};
 		};
