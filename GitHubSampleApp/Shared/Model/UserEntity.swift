@@ -8,12 +8,13 @@
 import Foundation
 
 
-class UserModel: Identifiable, Codable {
+class UserEntity: Identifiable, Codable {
     let id: Int
+    let login: String?
     let name: String?
     let avatar_url: String?
-    let following_url: String?
-    let followers_url: String?
+    let following: Int?
+    let followers: Int?
     let created_at: String?
     let updated_at: String?
     
