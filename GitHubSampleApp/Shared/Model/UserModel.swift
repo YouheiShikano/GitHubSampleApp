@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+
+class UserModel: Identifiable, Codable {
+    let id: Int
+    let name: String?
+    let avatar_url: String?
+    let following_url: String?
+    let followers_url: String?
+    let created_at: String?
+    let updated_at: String?
+    
+}
+
+
