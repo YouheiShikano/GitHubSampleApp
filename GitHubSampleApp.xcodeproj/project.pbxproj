@@ -18,6 +18,10 @@
 		4E1A43492901B1CB003D5800 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1A43482901B1CB003D5800 /* Alamofire */; };
 		4E1A434B2903A88B003D5800 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A434A2903A88B003D5800 /* UserModel.swift */; };
 		4E1A434D2903A89A003D5800 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A434C2903A89A003D5800 /* RepositoryModel.swift */; };
+		4E1A43512903C0D7003D5800 /* IUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43502903C0D7003D5800 /* IUserRepository.swift */; };
+		4E1A43532903C0E6003D5800 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43522903C0E6003D5800 /* UserRepositoryImpl.swift */; };
+		4E1A43552903C0F9003D5800 /* IRepositoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43542903C0F9003D5800 /* IRepositoryRepository.swift */; };
+		4E1A43572903C107003D5800 /* RepositoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A43562903C107003D5800 /* RepositoryRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		4E1A43452901B003003D5800 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4E1A434A2903A88B003D5800 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4E1A434C2903A89A003D5800 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		4E1A43502903C0D7003D5800 /* IUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUserRepository.swift; sourceTree = "<group>"; };
+		4E1A43522903C0E6003D5800 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		4E1A43542903C0F9003D5800 /* IRepositoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRepositoryRepository.swift; sourceTree = "<group>"; };
+		4E1A43562903C107003D5800 /* RepositoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +149,7 @@
 		4E1A43402901AF4C003D5800 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				4E1A434E2903C08F003D5800 /* Repositories */,
 				4E1A43412901AF79003D5800 /* API */,
 				4E1A43452901B003003D5800 /* API.swift */,
 			);
@@ -164,6 +173,7 @@
 		4E1A43432901AFA3003D5800 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4E1A434F2903C0C1003D5800 /* Repositories */,
 				4E1A43442901AFBF003D5800 /* Model */,
 			);
 			path = Shared;
@@ -176,6 +186,24 @@
 				4E1A434C2903A89A003D5800 /* RepositoryModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4E1A434E2903C08F003D5800 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				4E1A43522903C0E6003D5800 /* UserRepositoryImpl.swift */,
+				4E1A43562903C107003D5800 /* RepositoryRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		4E1A434F2903C0C1003D5800 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				4E1A43502903C0D7003D5800 /* IUserRepository.swift */,
+				4E1A43542903C0F9003D5800 /* IRepositoryRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,11 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1A43512903C0D7003D5800 /* IUserRepository.swift in Sources */,
 				4E1A43192901AEC0003D5800 /* ContentView.swift in Sources */,
+				4E1A43532903C0E6003D5800 /* UserRepositoryImpl.swift in Sources */,
 				4E1A434D2903A89A003D5800 /* RepositoryModel.swift in Sources */,
+				4E1A43572903C107003D5800 /* RepositoryRepositoryImpl.swift in Sources */,
 				4E1A43462901B003003D5800 /* API.swift in Sources */,
 				4E1A434B2903A88B003D5800 /* UserModel.swift in Sources */,
 				4E1A43172901AEC0003D5800 /* GitHubSampleAppApp.swift in Sources */,
+				4E1A43552903C0F9003D5800 /* IRepositoryRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,54 +18,39 @@ class Api {
         case fail
     }
     
-    func getUsers(per: Int, page: Int) -> Future<[UserModel], Error> {
+    func getUsers(per: Int, page: Int) async throws -> [UserModel] {
         
         let parametes: [String: Any] = ["per_page": page, "per": per]
+        let dataTask = AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).serializingDecodable([UserModel].self, decoder: JSONDecoder())
         
-        return Future<[UserModel], Error> { promise in
-            AF.request(self.baseUrl, parameters: parametes, headers: self.authHeader).responseData { response in
-                guard let data = response.data else {
-                    promise(.failure(ApiError.fail))
-                    return
-                }
-                do {
-                    let users = try JSONDecoder().decode([UserModel].self, from: data)
-                    print(users)
-                    promise(.success(users))
-                } catch let error {
-                    promise(.failure(ApiError.fail))
-                    print("Error: \(error)")
-                }
-            }
-            
+        var users: [UserModel] = []
+        
+        do {
+            users = try await dataTask.value
+        } catch {
+            print(ApiError.fail)
         }
+        
+        
+        return users
+        
     }
     
-    func getRepositories(username: String) ->Future<[RepositoryModel], Error> {
+    func getRepositories(username: String) async throws -> [RepositoryModel] {
         
         let repositoryUrl = self.baseUrl + "/\(username)/repos"
+        let dataTask = AF.request(repositoryUrl, headers: self.authHeader).serializingDecodable([RepositoryModel].self, decoder: JSONDecoder())
         
-        return Future<[RepositoryModel], Error> { promise in
-            AF.request(repositoryUrl, headers: self.authHeader).responseData { response in
-                guard let data = response.data else {
-                    promise(.failure(ApiError.fail))
-                    return
-                }
-                do {
-                    let repositories = try JSONDecoder().decode([RepositoryModel].self, from: data)
-                    print(repositories)
-                    promise(.success(repositories))
-                } catch let error {
-                    promise(.failure(ApiError.fail))
-                    print("Error: \(error)")
-                }
-            }
-            
+        var repositories: [RepositoryModel]
+        
+        do {
+            repositories = try await dataTask.value
+        } catch {
+            print(ApiError.fail)
         }
+        
+        return repositories
+        
     }
-    
-//    per_page=100&page=1
-    
-    
     
 }
