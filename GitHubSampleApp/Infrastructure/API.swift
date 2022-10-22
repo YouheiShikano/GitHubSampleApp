@@ -12,7 +12,7 @@ import Combine
 class Api {
     
     let baseUrl = "https://api.github.com/users"
-    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
+    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
     
     enum ApiError: Error {
         case fail
