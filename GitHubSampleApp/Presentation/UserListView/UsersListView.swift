@@ -17,10 +17,10 @@ struct UsersListView: View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(vm.output.users) { user in
+                    ForEach(vm.users) { user in
                         
                         NavigationLink {
-                            UserRepositoriesView(vm: UserRepositoriesViewModel(userName: user.login ?? "", repositoryRepository: RepositoryRepositoryImpl(), userRepository: UserRepositoryImpl()))
+                            UserRepositoriesView(vm: UserRepositoriesViewModel(userName: user.login ?? ""))
                         } label: {
                             HStack {
                                 if let url = URL(string: user.avatar_url ?? "") {

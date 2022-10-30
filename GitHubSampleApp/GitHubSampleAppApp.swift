@@ -12,7 +12,7 @@ struct GitHubSampleAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            UsersListView(vm: UsersListViewModel(userRepository: UserRepositoryImpl()))
+            UsersListView(vm: UsersListViewModel())
 
         }
     }

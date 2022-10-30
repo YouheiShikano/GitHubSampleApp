@@ -16,15 +16,15 @@ struct UserRepositoriesView: View {
     var body: some View {
         VStack {
             HStack {
-                if let url = URL(string: vm.output.user?.avatar_url ?? "") {
+                if let url = URL(string: vm.user?.avatar_url ?? "") {
                     URLImage(url: url) { image in
                         image.image?.resizable().aspectRatio(contentMode: .fill)
                     }.frame(width: 60, height: 60).cornerRadius(30).clipped()
                 }
                 VStack(alignment: .leading) {
-                    if vm.output.user?.name != "" {
-                        Text(vm.output.user?.name ?? "（本名未登録）").font(.title)
-                        Text(vm.output.user?.login ?? "")
+                    if vm.user?.name != "" {
+                        Text(vm.user?.name ?? "（本名未登録）").font(.title)
+                        Text(vm.user?.login ?? "")
                     }
                     
                 }.padding()
@@ -35,16 +35,16 @@ struct UserRepositoriesView: View {
             HStack {
                 Spacer()
                 Text("フォロワー数")
-                Text(vm.output.user?.followers?.description ?? "0")
+                Text(vm.user?.followers?.description ?? "0")
                 Spacer()
                 Text("フォロイー数")
-                Text(vm.output.user?.following?.description ?? "0")
+                Text(vm.user?.following?.description ?? "0")
                 Spacer()
             }
             
             List {
                 Section("リポジトリ一覧") {
-                    ForEach(vm.output.repositories) { repository in
+                    ForEach(vm.repositories) { repository in
                         
                         if repository.fork == false {
                             NavigationLink {

@@ -8,37 +8,17 @@
 import Foundation
 import Combine
 
-class UserRepositoriesViewModel: ViewModelObject  {
-    let input: Input
-    let output: Output
-    let repositoryRepository: IRepositoryRepository
-    let userRepository: IUserRepository
-    @BindableObject private(set) var binding: Binding
-    var currentPage: Int = 0
+class UserRepositoriesViewModel: ObservableObject {
+
     var userName: String
     
-    final class Input: InputObject {
-    }
-    
-    final class Output: OutputObject {
-        @Published var repositories: [RepositoryEntity] = []
-        @Published var user: UserEntity?
-    }
-    
-    final class Binding: BindingObject {
-    }
-    
+    @Published var repositories: [RepositoryEntity] = []
+    @Published var user: UserEntity?
+
     private var cancellables = Set<AnyCancellable>()
     
-    init(userName: String, repositoryRepository: IRepositoryRepository, userRepository: IUserRepository) {
-        self.input = Input()
-        self.output = Output()
-        self.binding = Binding()
-        
-        self.repositoryRepository = repositoryRepository
-        self.userRepository = userRepository
-        
-        
+    init(userName: String) {
+
         self.userName = userName
         
         self.getRepository()
@@ -49,10 +29,10 @@ class UserRepositoriesViewModel: ViewModelObject  {
     
     func getUser() {
         Task {
-            let user = try await userRepository.getUser(username: userName)
+            let user = try await UserRepository().getUser(username: userName)
             
             DispatchQueue.main.async {
-                self.output.user = user
+                self.user = user
             }
             
         }
@@ -61,14 +41,11 @@ class UserRepositoriesViewModel: ViewModelObject  {
     func getRepository() {
         
         Task {
-            let repositories = try await repositoryRepository.getRepositories(userName: userName)
+            let repositories = try await RepositoryRepository().getRepositories(userName: userName)
             
             DispatchQueue.main.async {
-                self.output.repositories = repositories
+                self.repositories = repositories
             }
-            
-            self.currentPage += 1
-            print(currentPage)
         }
     }
 }

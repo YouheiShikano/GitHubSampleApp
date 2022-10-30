@@ -7,12 +7,11 @@
 
 import Foundation
 import Alamofire
-import Combine
 
 class Api {
     
     let baseUrl = "https://api.github.com/users"
-    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
+    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
     
     enum ApiError: Error {
         case fail

@@ -8,43 +8,23 @@
 import Foundation
 import Combine
 
-class UsersListViewModel: ViewModelObject  {
-    let input: Input
-    let output: Output
-    let userRepository: IUserRepository
-    @BindableObject private(set) var binding: Binding
+class UsersListViewModel: ObservableObject {
+
     var currentPage: Int = 0
     
-    final class Input: InputObject {
-    }
-    
-    final class Output: OutputObject {
-        @Published var users: [UserEntity] = []
-    }
-    
-    final class Binding: BindingObject {
-    }
+    @Published var users: [UserEntity] = []
     
     private var cancellables = Set<AnyCancellable>()
-    
-    init(userRepository: IUserRepository) {
-        self.input = Input()
-        self.output = Output()
-        self.binding = Binding()
-        
-        self.userRepository = userRepository
-
-    }
     
     func loadMoreContent() {
         
         let page = self.currentPage
         
         Task {
-            let users = try await userRepository.getUsers(per: 100, page: page)
+            let users = try await UserRepository().getUsers(per: 100, page: page)
             
             DispatchQueue.main.async {
-                self.output.users += users
+                self.users += users
             }
             
             self.currentPage += 1
