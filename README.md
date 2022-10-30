@@ -2,3 +2,8 @@
 
 GitHubのAPIを使用し、
 ユーザー一覧画面画面からユーザーを選択するとリポジトリ一覧に移るアプリを作りました
+
+SwiftUIを使用しています
+
+※以下の行にパーソナルアクセストークンを取得し入力する必要があります
+https://github.com/YouheiShikano/GitHubSampleApp/blob/e42f450e7c53ee6b2b6d8ca79d77a2053e857f37/GitHubSampleApp/Infrastructure/API/API.swift#L14
