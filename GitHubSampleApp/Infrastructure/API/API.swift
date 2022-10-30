@@ -11,7 +11,7 @@ import Alamofire
 class Api {
     
     let baseUrl = "https://api.github.com/users"
-    let authHeader: HTTPHeaders = ["Authorization": "Bearer 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"]
+    let authHeader: HTTPHeaders = ["Authorization": "ここにGitHubから取得したパーソナルアクセストークンを入力"]
     
     enum ApiError: Error {
         case fail
